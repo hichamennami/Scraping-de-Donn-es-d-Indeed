@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Résultats pour {{ domaine }} à {{ ville }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title Job</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title, link in jobs %}
+                <tr>
+                    <td>{{ title }}</td>
+                    <td><a href="{{ link }}" target="_blank">Voir l'offre</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Retour</a>
+</body>
+</html>

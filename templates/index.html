@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indeed Job Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <h1>Indeed Job Scraper</h1>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Scraper des Offres d'Emploi Indeed</h2>
+            <form action="/results" method="post">
+                <div class="form-group">
+                    <label for="ville">Sélectionnez une ville :</label>
+                    <select name="ville" id="ville" required>
+                        {% for ville in villes %}
+                            <option value="{{ ville }}">{{ ville }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="domaine">Sélectionnez un domaine :</label>
+                    <select name="domaine" id="domaine" required>
+                        {% for domaine in domaines %}
+                            <option value="{{ domaine }}">{{ domaine }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit">Scraper les Offres</button>
+            </form>
+        </div>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Indeed Job Scraper</p>
+    </footer>
+</body>
+</html>
